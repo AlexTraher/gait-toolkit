@@ -1,0 +1,21 @@
+{
+  "name": "@gait/cypress-server-mock",
+  "version": "1.0.0",
+  "description": "mocking library for cypress",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "exports": {
+    "./api": "./build/api.js",
+    ".": "./build/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "author": "alex@gait.dev",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.8.4",
+    "undici": "^5.12.0"
+  }
+}

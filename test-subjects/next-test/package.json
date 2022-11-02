@@ -1,0 +1,29 @@
+{
+  "name": "next-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cypress": "cypress open",
+    "test": "start-server-and-test dev http://localhost:3000 cypress" 
+
+  },
+  "dependencies": {
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
+    "next": "13.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.8.4",
+    "undici": "^5.12.0"
+  },
+  "devDependencies": {
+    "@gait/cypress-server-mock": "*",
+    "cypress": "^10.11.0",
+    "start-server-and-test": "^1.14.0"
+  }
+}
