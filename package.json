@@ -4,14 +4,18 @@
   "private": true,
   "description": "mono-repo for gait tooling",
   "main": "index.ts",
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "lerna publish --ignore-changes 'test-subjects/**'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lerna run build"
   },
   "author": "alex@gait.dev",
   "license": "ISC",
   "workspaces": [
     "packages/*",
     "test-subjects/*"
-  ]
+  ],
+  "dependencies": {
+    "lerna": "^6.0.1"
+  }
 }
