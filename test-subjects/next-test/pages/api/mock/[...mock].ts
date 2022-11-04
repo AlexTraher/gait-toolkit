@@ -1,3 +1,3 @@
-import { apiHandler } from '@gait/cypress-server-mock';
+import { apiHandler } from '@gait-tools/cypress-server-mock';
 
 export default apiHandler;

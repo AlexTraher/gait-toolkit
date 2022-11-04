@@ -1,17 +1,26 @@
 {
-  "name": "@gait/tools",
+  "name": "gait-tools",
   "version": "1.0.0",
   "private": true,
   "description": "mono-repo for gait tooling",
   "main": "index.ts",
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "lerna publish from-package --yes --ignore-changes 'test-subjects/**'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lerna run build"
   },
   "author": "alex@gait.dev",
   "license": "ISC",
   "workspaces": [
     "packages/*",
     "test-subjects/*"
-  ]
+  ],
+  "dependencies": {
+    "lerna": "^6.0.1"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.17"
 }

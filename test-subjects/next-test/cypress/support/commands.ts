@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 // TODO - exporting properly
-import "@gait/cypress-server-mock/build/commands";
+import "@gait-tools/cypress-server-mock/build/commands";
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite

@@ -22,7 +22,7 @@
     "undici": "^5.12.0"
   },
   "devDependencies": {
-    "@gait/cypress-server-mock": "*",
+    "@gait-tools/cypress-server-mock": "*",
     "cypress": "^10.11.0",
     "start-server-and-test": "^1.14.0"
   }
