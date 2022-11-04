@@ -5,7 +5,7 @@
   "description": "mono-repo for gait tooling",
   "main": "index.ts",
   "scripts": {
-    "version": "lerna version",
+    "version": "lerna version --yes --include-merged-tags --create-release github",
     "publish": "lerna publish from-package --yes --ignore-changes 'test-subjects/**'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "lerna run lint --ignore 'test-subjects-*'",
