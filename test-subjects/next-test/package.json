@@ -1,5 +1,5 @@
 {
-  "name": "next-test",
+  "name": "test-subjects-next-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "cypress": "cypress open",
-    "test": "start-server-and-test dev http://localhost:3000 cypress" 
-
+    "test": "start-server-and-test dev http://localhost:3000 cypress"
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -24,6 +23,8 @@
   "devDependencies": {
     "@gait-tools/cypress-server-mock": "*",
     "cypress": "^10.11.0",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
     "start-server-and-test": "^1.14.0"
   }
 }

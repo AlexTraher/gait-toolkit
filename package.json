@@ -5,9 +5,11 @@
   "description": "mono-repo for gait tooling",
   "main": "index.ts",
   "scripts": {
+    "version": "lerna version",
     "publish": "lerna publish from-package --yes --ignore-changes 'test-subjects/**'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "lerna run build"
+    "lint": "lerna run lint --ignore 'test-subjects-*'",
+    "build": "lerna run build --ignore 'test-subjects-*'"
   },
   "author": "alex@gait.dev",
   "license": "ISC",

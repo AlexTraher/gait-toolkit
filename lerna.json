@@ -3,8 +3,15 @@
   "useWorkspaces": true,
   "npmClient": "yarn",
   "version": "independent",
-  "publishConfig": {
-    "access": "public"
+  "command": {
+    "version": {
+      "ignoreChanges": ["**/*.md", "**/*.test.*", "test-subjects/**"]
+    },
+    "publish": {
+      "ignoreChanges": ["**/*.md", "**/*.test.*", "test-subjects/**"],
+      "conventionalCommits": true,
+      "message": "chore: publish",
+      "allowBranch": "main"
+    }
   }
-  
 }
