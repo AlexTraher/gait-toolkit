@@ -1,6 +1,6 @@
 {
   "name": "@gait/cypress-server-mock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mocking library for cypress",
   "main": "build/index.js",
   "types": "build/index.d.ts",
