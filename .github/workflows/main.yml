@@ -41,7 +41,7 @@ jobs:
           git remote add origin "https://alextraher:$GITHUB_TOKEN@github.com/AlexTraher/gait-toolkit.git"
           git push -u origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.ADMIN_GH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Build changed
         run: yarn build
       - name: Authenticate with NPM
@@ -60,4 +60,4 @@ jobs:
           yarn run publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GH_TOKEN: ${{ secrets.ADMIN_GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
