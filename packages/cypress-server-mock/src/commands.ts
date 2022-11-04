@@ -2,7 +2,6 @@
 
 import { MockConfig } from "./types";
 
-
 declare global {
   namespace Cypress {
     interface Chainable {

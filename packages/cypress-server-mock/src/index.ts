@@ -1,4 +1,4 @@
-export { default as apiHandler } from './api';
+export * from './api';
 
 /**
  * 1. Add support for validating mocks

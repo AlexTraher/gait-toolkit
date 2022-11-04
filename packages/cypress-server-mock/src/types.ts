@@ -11,3 +11,5 @@ interface BaseConfig {
 }
 
 export type MockConfig = BaseConfig & MockInterceptor.Options;
+
+export type MockHandler = (mockConfig: MockConfig) => void | Promise<void>
