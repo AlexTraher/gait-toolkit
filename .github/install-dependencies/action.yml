@@ -4,7 +4,7 @@ runs:
   using: composite
   steps:
     - name: Setup Node LTS and yarn cache
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         cache: yarn
         check-latest: true

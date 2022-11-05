@@ -5,10 +5,10 @@
   "version": "independent",
   "command": {
     "version": {
-      "ignoreChanges": ["**/*.md", "**/*.test.*", "test-subjects/**"]
+      "ignoreChanges": ["**/*.test.*", "test-subjects/**"]
     },
     "publish": {
-      "ignoreChanges": ["**/*.md", "**/*.test.*", "test-subjects/**"],
+      "ignoreChanges": ["**/*.test.*", "test-subjects/**"],
       "conventionalCommits": true,
       "message": "chore: publish",
       "allowBranch": "main"
