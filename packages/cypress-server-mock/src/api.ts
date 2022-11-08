@@ -1,23 +1,14 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { MockConfig, MockHandler } from './types';
-import undiciMockHandler from './api/undici';
 
-type Data = {
-  message: string
-}
-
-export const createHandler = (mockHandler: MockHandler) => async (
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) => {
-  const config = JSON.parse(req.body) as MockConfig;
-  await mockHandler(config);
-
-  res.status(200).json({ message: 'ok' })
-}
-
-export const undiciHandler = createHandler(undiciMockHandler);
+import { getUndiciCreateMockHandler, getUndiciRestoreMockHandler } from './api/undici';
+import createHandler from './api/create-handler';
+import { UndiciPredefinedHandlerConfig } from './types';
 
 
+export const undiciHandler = (partialConfig?: UndiciPredefinedHandlerConfig) => createHandler({
+  createHandler: getUndiciCreateMockHandler(partialConfig),
+  restoreHandler: getUndiciRestoreMockHandler(partialConfig),
+  createApiPath: partialConfig?.createApiPath,
+  restoreApiPath: partialConfig?.restoreApiPath,
+});
 
-
+export { default as createHandler } from "./api/create-handler";
