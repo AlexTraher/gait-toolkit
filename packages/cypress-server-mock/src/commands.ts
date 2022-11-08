@@ -5,7 +5,8 @@ import { MockConfig } from "./types";
 declare global {
   namespace Cypress {
     interface Chainable {
-      serverMock(config: MockConfig): Chainable
+      mockServerUrl(config: MockConfig): Chainable
+      restoreServerMocks(apiPath?: string): Chainable
     }
   }
 }
@@ -13,12 +14,19 @@ declare global {
 const getDefaultApiPath = () => `${window.location.host}/api/mock`
 
 
-Cypress.Commands.add("serverMock", (config: MockConfig) => {
+Cypress.Commands.add("mockServerUrl", (config: MockConfig) => {
   const { apiPath = getDefaultApiPath(), ...rest } = config;
   cy.request({
     url: `${apiPath}/create`,
     method: "POST",
     body: JSON.stringify(rest),
+  });
+});
+
+Cypress.Commands.add("restoreServerMocks", (apiPath = getDefaultApiPath()) => {
+  cy.request({
+    url: `${apiPath}/restore`,
+    method: "POST",
   });
 });
 

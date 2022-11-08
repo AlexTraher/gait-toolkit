@@ -25,14 +25,13 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 export default Home;
 
 const getContent = async () => {
-  const { body } = await request('http://localhost:3001/content');
+  const { body } = await request('http://localhost:3000/api/hello');
   const { content } =  await body.json();
   return content as string;
 }
 
 
 export const getServerSideProps = async () => {
-  // todo - fetching
   const content = await getContent();
 
   return {

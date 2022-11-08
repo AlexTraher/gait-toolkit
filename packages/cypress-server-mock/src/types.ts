@@ -12,4 +12,19 @@ interface BaseConfig {
 
 export type MockConfig = BaseConfig & MockInterceptor.Options;
 
-export type MockHandler = (mockConfig: MockConfig) => void | Promise<void>
+export type CreateMockHandler = (mockConfig: MockConfig) => void | Promise<void>
+
+export type RestoreMockHandler = () => void | Promise<void>
+
+export interface HandlerConfig {
+  createHandler: CreateMockHandler,
+  restoreHandler: RestoreMockHandler,
+  createApiPath?: string;
+  restoreApiPath?: string;
+}
+
+export type PredefinedHandlerConfig = Omit<HandlerConfig, "createHandler" | "restoreHandler">
+
+export interface UndiciPredefinedHandlerConfig extends PredefinedHandlerConfig {
+  disableNetConnect?: boolean;
+}
