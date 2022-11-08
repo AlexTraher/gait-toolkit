@@ -16,31 +16,52 @@ To use the cypress command add the following to your `support/commands.ts` file:
 
 `import "@gait-tools/cypress-server-mock/commands";`
 
-Currently only Next is supported, so add a capture all api route under `/pages/api/mock/` e.g. `/pages/api/mock/[...mock].ts`.
+Currently only Next is supported.
+
+Add a capture all api route under `/pages/api/mock/` e.g. `/pages/api/mock/[...mock].ts`.
 
 Inside that file you can either export a pre-configured mock handler e.g.: 
 
 ```typescript
 import { undiciHandler } from "@gait-tools/cypress-server-mock";
+const opts = { 
+   createApiPath: "string";
+   restoreApiPath: "string";
+   ...rest // opts specific to the custom handler - see typing for more details here
+} 
 
-export default undiciHandler;
+export default undiciHandler(opts);
 ```
 
 or build out your own handler: 
+
 ```typescript
 import { createHandler } from "@gait-tools/cypress-server-mock";
 
-export default createHandler(async () => {
-  // Custom mocking logic
+export default createHandler({
+   createHandler: async (mockConfig) => {
+    // function to create your mocks
+   },
+    restoreHandler: async () => {
+      // function to restore your mocks 
+    },
+    /** optional path your mocking create endpoint sits on.
+     * defaults to `api/mock/create`
+     */
+    createApiPath: "string"; 
+    /** optional path your mocking restore endpoint sits on.
+     * defaults to `api/mock/restore`
+     */
+    restoreApiPath: "string";
 });
 ```
 
 You can then use the cypress server mock in your tests:
 ```typescript
 it('should give me fake content', () => {
-  cy.serverMock({
-    apiPath: "http://localhost:3000/api/mock", // the path to your mocking endpoints (defaults to this if not included)
-    basePath: "http://external-service.company.com", 
+  cy.mockServerUrl({
+    apiPath: "http://localhost:3000/api/mock", // the path to your mocking endpoints
+    basePath: "http://external-service.company.com", // the path you want to mock
     path: "/content",
     method: "GET",
     response: {
@@ -50,6 +71,10 @@ it('should give me fake content', () => {
   })
   
   cy.visit('http://localhost:3000');
+})
+
+afterEach(() => {
+  cy.restoreServerMocks();
 })
 ```
 
