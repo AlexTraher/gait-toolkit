@@ -1,6 +1,6 @@
 {
   "name": "@gait-tools/cypress-server-mock",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "description": "mocking library for cypress",
   "main": "build/index.js",
@@ -20,10 +20,10 @@
     "cypress": "^10"
   },
   "devDependencies": {
-    "typescript": "^4.8.4",
-    "undici": "^5.12.0",
+    "cypress": "*",
     "next": "*",
-    "cypress": "*"
+    "typescript": "^4.8.4",
+    "undici": "^5.12.0"
   },
   "publishConfig": {
     "access": "public"
